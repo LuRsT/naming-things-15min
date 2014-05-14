@@ -84,13 +84,13 @@
 </section>
 <section><h2>I already have a crappy name, what should I do?</h2>
 </section>
+<section><h1>Other tips</h1>
+</section>
 <section><h2>Psycology in names</h2>
 <ul>
 <li>Don't use hard to read characters (O01Il)</li>
 <li>Don't differentiate based on capitalization</li>
 </ul>
-</section>
-<section><h1>Other tips</h1>
 </section>
 <section><h3>Don't use multiple languages</h3>
 <p><img src="naming-things_images/languages.gif" alt="languages"></p>
@@ -98,11 +98,38 @@
 <section><h3>Don't reuse names</h3>
 <p><img src="naming-things_images/racoon.gif" alt="racoon"></p>
 </section>
+<section><h4>Don't reuse names (example)</h4>
+<pre><code>article = get_article()
+article = transform_article()
+return article
+</code></pre>
+<h5>vs</h5>
+<pre><code>article = get_article()
+transformed_article = transform_article()
+return transformed_article
+</code></pre>
+</section>
 <section><h3>Don't use <code>i</code> as the loop variable</h3>
 <p><img src="naming-things_images/loop.gif" alt="loop"></p>
 </section>
+<section><h4>Don't use <code>i</code> as the loop variable (example)</h4>
+<pre><code>for i in articles:
+    print i
+</code></pre>
+<h5>vs</h5>
+<pre><code>for article in articles
+    print article
+</code></pre>
+</section>
 <section><h3>Magic numbers and strings</h3>
 <p><img src="naming-things_images/magic.gif" alt="magic" width=500></p>
+</section>
+<section><h4>Magic numbers and strings (example)</h4>
+<pre><code>articles = get_all_articles(limit=10)
+</code></pre>
+<h5>vs</h5>
+<pre><code>articles = get_all_articles(limit=MAX_ARTICLES_FRONTPAGE)
+</code></pre>
 </section>
 <section><h3>80 characters limit</h3>
 <p><img src="naming-things_images/limit.gif" alt="limit" width=500></p>
@@ -111,8 +138,6 @@
 <pre><code>pstdev()    Population standard deviation of data.
 pvariance()     Population variance of data.
 stdev()     Sample standard deviation of data.
-
-
 </code></pre>
 <p><a href="https://docs.python.org/3/library/statistics.html#measures-of-spread">https://docs.python.org/3/library/statistics.html#measures-of-spread</a></p>
 </section>
