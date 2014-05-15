@@ -45,17 +45,12 @@
 </section>
 <section><h2>Reasons</h2>
 <ul>
-<li><strong>Understandability</strong></li>
-<li>Maintainability</li>
 <li>Readability</li>
+<li>Understandability</li>
+<li><strong>Maintainability</strong></li>
 </ul>
 </section>
 <section><h2>Problems</h2>
-<ul>
-<li>Can't name</li>
-<li>Can't find a name for something</li>
-<li>Too lazy to name</li>
-</ul>
 </section>
 <section><h2>Can't name?</h2>
 <ul>
@@ -64,17 +59,17 @@
 </ul>
 </section>
 <section><h2>or...</h2>
-<p>The (function|variable|class|etc..) is doing too much.</p>
+<p>The <em>thing</em> is doing too much.</p>
 <p>So you should...<strong>Refactor!</strong></p>
 </section>
 <section><h2>Can't find a name for something?</h2>
 <p>Use a Thesaurus and look for synonyms of whatever it is that you're doing.</p>
-<p>Or a dictionary...</p>
+<p>Or <strong>Google</strong> it...</p>
 </section>
 <section><h2>Names to avoid</h2>
 <ul>
-<li>No meaning (e.g. do_stuff)</li>
-<li>Same meaning, different places (e.g. display/show/present)</li>
+<li>No meaning (e.g. <code>do_stuff</code>)</li>
+<li>Inconsistent naming (e.g. display/show/present)</li>
 <li>Relative (e.g. new, old)</li>
 <li>Names that are too big.</li>
 </ul>
@@ -86,7 +81,7 @@
 </section>
 <section><h1>Other tips</h1>
 </section>
-<section><h2>Psycology in names</h2>
+<section><h2>Psychology in names</h2>
 <ul>
 <li>Don't use hard to read characters (O01Il)</li>
 <li>Don't differentiate based on capitalization</li>
@@ -100,12 +95,12 @@
 </section>
 <section><h4>Don't reuse names (example)</h4>
 <pre><code>article = get_article()
-article = transform_article()
+article = transform_article(article)
 return article
 </code></pre>
 <h5>vs</h5>
 <pre><code>article = get_article()
-transformed_article = transform_article()
+transformed_article = transform_article(article)
 return transformed_article
 </code></pre>
 </section>
@@ -114,18 +109,21 @@ return transformed_article
 </section>
 <section><h4>Don't use <code>i</code> as the loop variable (example)</h4>
 <pre><code>for i in articles:
-    print i
+    for ii in i.tags:
+        print i, ii
 </code></pre>
 <h5>vs</h5>
 <pre><code>for article in articles
-    print article
+    for tag in article.tags
+        print article, tag
 </code></pre>
 </section>
 <section><h3>Magic numbers and strings</h3>
 <p><img src="naming-things_images/magic.gif" alt="magic" width=500></p>
 </section>
 <section><h4>Magic numbers and strings (example)</h4>
-<pre><code>articles = get_all_articles(limit=10)
+<pre><code># Articles to be displayed in the frontpage
+articles = get_all_articles(limit=10)
 </code></pre>
 <h5>vs</h5>
 <pre><code>articles = get_all_articles(limit=MAX_ARTICLES_FRONTPAGE)
@@ -135,9 +133,9 @@ return transformed_article
 <p><img src="naming-things_images/limit.gif" alt="limit" width=500></p>
 </section>
 <section><h3>Some <em>bad</em> examples from python</h3>
-<pre><code>pstdev()    Population standard deviation of data.
+<pre><code>pstdev()        Population standard deviation of data.
 pvariance()     Population variance of data.
-stdev()     Sample standard deviation of data.
+stdev()         Sample standard deviation of data.
 </code></pre>
 <p><a href="https://docs.python.org/3/library/statistics.html#measures-of-spread">https://docs.python.org/3/library/statistics.html#measures-of-spread</a></p>
 </section>
